@@ -11,9 +11,7 @@ RUN chmod 0644 /etc/cron.d/mongo-backup
 # Create the log file
 RUN touch /var/log/cron.log
 # Grant execution permissions to backup script
-RUN chmod 755 /root/backup.sh
-
-CMD cron
+RUN chmod 0755 /root/backup.sh
 
 VOLUME ["/backup"]
 
