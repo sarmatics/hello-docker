@@ -6,10 +6,12 @@ COPY backup.sh   /root/backup.sh
 
 # Add crontab file in the cron directory
 ADD crontab /etc/cron.d/mongo-backup
-# Grant execution rights on the cron job
+# Grant execution permissings to the cron job
 RUN chmod 0644 /etc/cron.d/mongo-backup
 # Create the log file
 RUN touch /var/log/cron.log
+# Grant execution permissions to backup script
+RUN chmod 755 /root/backup.sh
 
 CMD cron
 
